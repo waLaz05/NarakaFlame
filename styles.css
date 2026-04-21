@@ -122,7 +122,7 @@ img {
         height: 60px;
         object-fit: cover;
         object-position: center;
-        border-radius: 8px;
+        border-radius: 0;
         background-color: transparent;
         mix-blend-mode: darken;
         z-index: 2;
@@ -366,7 +366,7 @@ img {
         height: 100%;
         object-fit: cover;
         object-position: center;
-        border-radius: 6px;
+        border-radius: 0;
         background-color: transparent;
         mix-blend-mode: darken;
         z-index: 2;
@@ -643,7 +643,7 @@ img {
         height: 320px;
         object-fit: cover;
         object-position: center;
-        border-radius: 12px;
+        border-radius: 0;
         background-color: transparent;
         mix-blend-mode: darken;
         z-index: 2;
@@ -1252,7 +1252,7 @@ img {
         height: 100%;
         object-fit: cover;
         object-position: center;
-        border-radius: 8px;
+        border-radius: 0;
         background-color: transparent;
         mix-blend-mode: darken;
         opacity: 0.9;
@@ -1311,72 +1311,57 @@ img {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 105%;
-        height: 105%;
+        width: 85%;
+        height: 85%;
         z-index: 1;
         pointer-events: none;
         mix-blend-mode: screen;
     }
 
     .organic-fire--sm {
-        width: 120%;
-        height: 120%;
+        width: 100%;
+        height: 100%;
     }
 
     .organic-fire--md {
-        width: 115%;
-        height: 115%;
+        width: 95%;
+        height: 95%;
     }
 
     .organic-fire--lg {
-        width: 108%;
-        height: 108%;
+        width: 85%;
+        height: 85%;
     }
 
     .organic-fire .flame {
         position: absolute;
         inset: 0;
-        border-radius: 12px;
-        background-size: 100% 200%;
-        opacity: 0.9;
+        border-radius: 16px;
+        opacity: 1;
     }
 
     .organic-fire .flame-1 {
-        background: linear-gradient(0deg, #500, #ff0000, #ff8800, #ff0000);
+        background: linear-gradient(180deg, #d8001a, #ffaa00, #d8001a);
         background-size: 100% 200%;
-        animation: fireRise 2s linear infinite, flameFlicker 3s ease-in-out infinite alternate;
-        filter: blur(8px);
+        animation: fireRise 2.5s linear infinite;
+        filter: blur(4px);
     }
 
     .organic-fire .flame-2 {
-        background: linear-gradient(0deg, #d8001a, #ff5500, #ffaa00, #ff5500);
+        background: linear-gradient(180deg, transparent, #ff0000, #ffaa00, transparent);
         background-size: 100% 200%;
-        animation: fireRise 1.5s linear infinite, flameFlicker 2s ease-in-out infinite alternate-reverse;
-        filter: blur(4px);
-        inset: -4px;
-        border-radius: 16px;
+        animation: fireRise 1.8s linear infinite;
+        filter: blur(2px);
+        inset: -2px;
+        border-radius: 18px;
     }
 
     .organic-fire .flame-3 {
-        background: #ffaa00;
-        animation: flameFlicker 1.8s ease-in-out infinite alternate;
-        filter: blur(2px);
-        inset: 2px;
-    }
-
-    @keyframes flameFlicker {
-        0% {
-            transform: scale(1, 1) translate(0, 0);
-        }
-        33% {
-            transform: scale(1.02, 1.04) translate(-2px, -3px);
-        }
-        66% {
-            transform: scale(1.04, 1.01) translate(2px, -2px);
-        }
-        100% {
-            transform: scale(1, 1) translate(0, 0);
-        }
+        background: linear-gradient(180deg, #ffaa00, #ff5500);
+        inset: 4px;
+        border-radius: 12px;
+        filter: blur(0px);
+        opacity: 0.6;
     }
 
     @keyframes fireRise {
