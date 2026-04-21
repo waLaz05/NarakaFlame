@@ -802,13 +802,16 @@ img {
     }
 
     .roster__grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
         margin-top: 3rem;
     }
 
     .roster__card {
+        flex: 0 0 calc(25% - 1.125rem); /* 4 cols base with 1.5rem gap */
+        max-width: calc(25% - 1.125rem);
         aspect-ratio: 2 / 3;
         perspective: 1000px;
     }
@@ -1311,60 +1314,77 @@ img {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 85%;
-        height: 85%;
+        width: 115%;
+        height: 115%;
         z-index: 1;
         pointer-events: none;
         mix-blend-mode: screen;
+        filter: blur(8px);
     }
 
     .organic-fire--sm {
-        width: 100%;
-        height: 100%;
+        width: 130%;
+        height: 130%;
+        filter: blur(4px);
     }
 
     .organic-fire--md {
-        width: 95%;
-        height: 95%;
+        width: 120%;
+        height: 120%;
+        filter: blur(6px);
     }
 
     .organic-fire--lg {
-        width: 85%;
-        height: 85%;
+        width: 110%;
+        height: 110%;
+        filter: blur(12px);
     }
 
     .organic-fire .flame {
         position: absolute;
         inset: 0;
-        border-radius: 16px;
-        opacity: 1;
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        opacity: 0.85;
     }
 
     .organic-fire .flame-1 {
-        background: linear-gradient(180deg, #d8001a, #ffaa00, #d8001a);
-        background-size: 100% 200%;
-        animation: fireRise 2.5s linear infinite;
-        filter: blur(4px);
+        background: #d8001a;
+        animation: blobMorph 4s linear infinite alternate;
     }
 
     .organic-fire .flame-2 {
-        background: linear-gradient(180deg, transparent, #ff0000, #ffaa00, transparent);
-        background-size: 100% 200%;
-        animation: fireRise 1.8s linear infinite;
-        filter: blur(2px);
-        inset: -2px;
-        border-radius: 18px;
+        background: #ff5500;
+        animation: blobMorph 5s linear infinite reverse;
+        inset: 5%;
     }
 
     .organic-fire .flame-3 {
-        background: linear-gradient(180deg, #ffaa00, #ff5500);
-        inset: 4px;
-        border-radius: 12px;
-        filter: blur(0px);
-        opacity: 0.6;
+        background: #ffaa00;
+        animation: blobMorph 8s linear infinite alternate;
+        inset: 15%;
     }
 
-    @keyframes fireRise {
+    @keyframes blobMorph {
+        0% {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            transform: rotate(0deg) scale(1);
+        }
+
+        33% {
+            border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+            transform: rotate(120deg) scale(1.05);
+        }
+
+        66% {
+            border-radius: 30% 70% 50% 50% / 60% 40% 70% 30%;
+            transform: rotate(240deg) scale(0.95);
+        }
+
+        100% {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            transform: rotate(360deg) scale(1);
+        }
+    }
         0% {
             background-position: 0% 100%;
         }
@@ -1482,7 +1502,12 @@ img {
         }
 
         .roster__grid {
-            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .roster__card {
+            flex: 0 0 calc(33.333% - 0.66rem); /* 3 cols tablet */
+            max-width: calc(33.333% - 0.66rem);
         }
 
         .matches__head,
@@ -1605,9 +1630,9 @@ img {
             gap: 1.5rem;
         }
 
-        .roster__grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+        .roster__card {
+            flex: 0 0 calc(50% - 0.5rem); /* 2 cols mobile */
+            max-width: calc(50% - 0.5rem);
         }
 
         .matches__head {
@@ -1659,8 +1684,8 @@ img {
     }
 
     @media (max-width: 480px) {
-        .roster__grid {
-            grid-template-columns: 1fr;
+        .roster__card {
+            flex: 0 0 100%; /* 1 col tiny */
             max-width: 300px;
             margin-inline: auto;
         }
