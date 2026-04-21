@@ -115,13 +115,12 @@ img {
     height: 80px;
     object-fit: cover;
     object-position: center;
-    border-radius: 6px;
     padding: 3px;
-    background: linear-gradient(135deg, #ff0000, #ff5500, #d8001a, #ffaa00, #ff0000);
-    background-size: 300% 300%;
-    animation: fireGradient 2.5s ease infinite;
+    background: linear-gradient(0deg, #5a0000, #ff0000, #ff8800, #ff0000, #5a0000);
+    background-size: 100% 300%;
+    animation: fireRise 2s linear infinite;
+    clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
     z-index: 2;
-    box-shadow: 0 0 20px rgba(255, 30, 0, 0.4);
 }
 
 .loader-progress {
@@ -330,11 +329,11 @@ img {
     height: 44px;
     object-fit: cover;
     object-position: center;
-    border-radius: 4px;
     padding: 2px;
-    background: linear-gradient(135deg, #ff0000, #ff5500, #d8001a, #ffaa00, #ff0000);
-    background-size: 300% 300%;
-    animation: fireGradient 3s ease infinite;
+    background: linear-gradient(0deg, #5a0000, #ff0000, #ff8800, #ff0000, #5a0000);
+    background-size: 100% 300%;
+    animation: fireRise 2s linear infinite;
+    clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
 }
 
 .nav__brand-text {
@@ -582,6 +581,12 @@ img {
     align-items: center;
     animation: floatEmblem 6s ease-in-out infinite;
     perspective: 1000px;
+    filter: drop-shadow(0 0 25px rgba(216,0,26,0.6));
+    transition: filter 0.6s ease;
+}
+
+.hero__emblem:hover {
+    filter: drop-shadow(0 0 45px rgba(255,50,0,0.9));
 }
 
 .hero__emblem-img {
@@ -589,20 +594,18 @@ img {
     height: 320px;
     object-fit: cover;
     object-position: center;
-    border-radius: 12px;
-    padding: 4px;
-    background: linear-gradient(135deg, #ff0000, #ff5500, #d8001a, #ffaa00, #ff0000);
-    background-size: 300% 300%;
-    animation: fireGradient 2s ease infinite;
+    padding: 6px;
+    background: linear-gradient(0deg, #5a0000, #ff0000, #ff8800, #ff0000, #5a0000);
+    background-size: 100% 300%;
+    animation: fireRise 2.5s linear infinite;
+    clip-path: polygon(12% 0, 88% 0, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0 88%, 0 12%);
     z-index: 2;
     position: relative;
-    box-shadow: 0 0 40px rgba(216,0,26,0.5);
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .hero__emblem:hover .hero__emblem-img {
     transform: scale(1.08) rotateZ(3deg);
-    box-shadow: 0 0 70px rgba(255, 30, 0, 0.8);
 }
 
 .hero__emblem-glow {
@@ -1168,19 +1171,21 @@ img {
     height: 72px;
     object-fit: cover;
     object-position: center;
-    border-radius: 8px;
-    margin-bottom: 2rem;
     padding: 3px;
-    background: linear-gradient(135deg, #ff0000, #ff5500, #d8001a, #ffaa00, #ff0000);
-    background-size: 300% 300%;
-    animation: fireGradient 3s ease infinite;
+    background: linear-gradient(0deg, #5a0000, #ff0000, #ff8800, #ff0000, #5a0000);
+    background-size: 100% 300%;
+    animation: fireRise 2.5s linear infinite;
+    clip-path: polygon(15% 0, 85% 0, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0 85%, 0 15%);
+    margin-bottom: 2rem;
     opacity: 0.9;
-    box-shadow: 0 0 15px rgba(255, 30, 0, 0.4);
+    filter: drop-shadow(0 0 10px rgba(255, 30, 0, 0.4));
+    transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
 }
 
 .footer__logo:hover {
     transform: scale(1.05);
     opacity: 1;
+    filter: drop-shadow(0 0 20px rgba(255, 30, 0, 0.8));
 }
 
 .footer__motto {
@@ -1223,10 +1228,9 @@ img {
 }
 
 /* ═════════ ANIMATION UTILS ═════════ */
-@keyframes fireGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+@keyframes fireRise {
+    0% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
 }
 
 @keyframes floatEmblem {
