@@ -580,6 +580,8 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: floatEmblem 6s ease-in-out infinite;
+    perspective: 1000px;
 }
 
 .hero__emblem-img {
@@ -595,6 +597,12 @@ img {
     z-index: 2;
     position: relative;
     box-shadow: 0 0 40px rgba(216,0,26,0.5);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.6s ease;
+}
+
+.hero__emblem:hover .hero__emblem-img {
+    transform: scale(1.08) rotateZ(3deg);
+    box-shadow: 0 0 70px rgba(255, 30, 0, 0.8);
 }
 
 .hero__emblem-glow {
@@ -607,6 +615,7 @@ img {
     opacity: 0.3;
     border-radius: 8px;
     z-index: 1;
+    animation: glowPulse 4s ease-in-out infinite;
 }
 
 .hero__emblem-ring {
@@ -1218,6 +1227,18 @@ img {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+@keyframes floatEmblem {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); filter: blur(70px); }
+    50% { opacity: 0.45; transform: translate(-50%, -50%) scale(1.15); filter: blur(90px); }
+    100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); filter: blur(70px); }
 }
 
 .anim {
