@@ -1192,6 +1192,98 @@ img {
         letter-spacing: 0.1em;
     }
 
+    /* ═════════ UNIFORME ═════════ */
+    .uniform {
+        background-color: var(--bg-surface);
+        border-top: 1px solid var(--c-border);
+        border-bottom: 1px solid var(--c-border);
+    }
+
+    .uniform__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .uniform__image-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        background: linear-gradient(135deg, rgba(216, 0, 26, 0.05) 0%, transparent 100%);
+        border: 1px solid rgba(216, 0, 26, 0.1);
+        border-radius: 8px;
+    }
+
+    .uniform__bg-glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        background-color: var(--c-primary);
+        filter: blur(100px);
+        opacity: 0.15;
+        z-index: 0;
+        border-radius: 50%;
+    }
+
+    .uniform__img {
+        position: relative;
+        z-index: 1;
+        max-width: 100%;
+        height: auto;
+        transform: scale(1.05);
+        transition: transform var(--transition-slow);
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+    }
+
+    .uniform__image-wrapper:hover .uniform__img {
+        transform: scale(1.1) translateY(-10px);
+    }
+
+    .uniform__info h3 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--c-text-main);
+    }
+
+    .uniform__info p {
+        font-size: 1.125rem;
+        color: var(--c-text-muted);
+        margin-bottom: 2rem;
+        line-height: 1.8;
+    }
+
+    .uniform__features {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .uniform__features li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.05rem;
+        color: var(--c-text-main);
+        padding: 1rem;
+        background-color: var(--bg-panel);
+        border-left: 3px solid var(--c-primary);
+        border-radius: 0 4px 4px 0;
+        transition: transform var(--transition-fast), background-color var(--transition-fast);
+    }
+
+    .uniform__features li:hover {
+        transform: translateX(10px);
+        background-color: rgba(216, 0, 26, 0.05);
+    }
+
     /* ═════════ ACHIEVEMENTS ═════════ */
     .achievements {
         background-color: var(--bg-base);
@@ -1767,6 +1859,11 @@ img {
         .matches__summary {
             flex-direction: column;
             gap: 1.5rem;
+        }
+
+        .uniform__content {
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
         .ach__grid {
